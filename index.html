@@ -1,27 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="fonts.css">
 </head>
-<body>
-    
-    <div class="page">
 
-        <div class="container">
-            <div class="header"></div>
-            <div class="box">
-                <div class="texto">Man, como pode</div>
-                <div class="little">sei lá vei</div>
-                <div class="online"><span class="iconline"></span>Online now</div>
+<body>
+
+    <div class="global-container">
+        <div class="chat-area">
+            <div class="head-container">
+                <div class="head-area">
+                    <div class="head-column">
+                        <p class="profile-name"> Nenko Hashimura </p>
+                        <!-- <img class="icon-down" src="./icons/down.png"> -->
+                    </div>
+                    <div class="head-column">
+                        <div class="online"><span class="icon-online"></span>
+                            <p>Online now</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="footer"></div>
+
+            <div class="message-container">
+                <div class="message-container-reverse">
+
+
+                    <!-- <div class="message-area">
+
+                        <div class="message-group">
+
+                            <div class="message-column">
+
+                                <div class="message-row">
+                                    <div class="message-profile-icon"></div>
+                                </div>
+
+                            </div>
+
+                            <div class="message-column">
+
+                                <div class="message-row">
+                                    <div class="message-name">Nenko</div>
+                                </div>
+
+                                <div class="message-row">
+                                    <div class="texto">Man, quer um conselho?</div>
+                                </div>
+
+                                <div class="message-row">
+                                    <div class="texto">Seja estranho. Seja aleatório. Seja quem você é. Porque você
+                                        nunca sabe quem amaria a pessoa que você esconde.</div>
+                                </div>
+
+                                <div class="message-row">
+                                    <div class="texto">😉</div>
+                                    <div class="time">08:54</div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="message-area just-me">
+
+
+
+                        <div class="message-group ">
+
+                            <div class="message-column">
+
+                                <div class="message-row">
+                                    <div class="message-profile-icon"></div>
+                                </div>
+
+                            </div>
+
+                            <div class="message-column">
+
+                                <div class="message-row">
+                                    <div class="message-name">Anderson</div>
+                                </div>
+
+                                <div class="message-row">
+                                    <div class="texto">Sábias palavras meu nobre</div>
+                                </div>
+
+                                <div class="message-row">
+                                    <div class="texto">🙏</div>
+                                    <div class="time">08:54</div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="message-area">
+
+
+                        <div class="message-group">
+
+                            <div class="message-column">
+
+                                <div class="message-row">
+                                    <div class="message-profile-icon"></div>
+                                </div>
+
+                            </div>
+
+                            <div class="message-column">
+
+                                <div class="message-row">
+                                    <div class="message-name">Nenko</div>
+                                </div>
+
+                                <div class="message-row">
+                                    <div class="texto">Boa noite</div>
+                                </div>
+
+                                <div class="message-row">
+                                    <div class="texto">Vou falar boa noite até você me responder</div>
+                                </div>
+
+                                <div class="message-row">
+                                    <div class="texto">Boa noite</div>
+                                </div>
+
+                                <div class="message-row">
+                                    <div class="texto">
+                                        <p>Boa noite</p>
+                                    </div>
+                                </div>
+
+                                <div class="message-row">
+                                    <div class="image">
+                                        <img class="image-preview" src="./images/image1.png">
+                                    </div>
+                                </div>
+
+                                <div class="message-row">
+                                    <div class="document">
+                                        <img class="document-preview" src="./images/file.png">
+                                        <p>abobora.txt</p>
+                                    </div>
+                                </div>
+
+                                <div class="message-row">
+                                    <div class="texto">Boa noite</div>
+                                    <div class="time">08:54</div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="input-container">
+                <div class="input-area">
+                    <div class="input-entry">
+                        <input id="input-text" type="text" maxlength="555" placeholder="Type your message...">
+                    </div>
+                    <div id="btn-send" class="input-icon">
+                        <img class="icon" src="./icons/send.png">
+                    </div>
+                </div>
+            </div>
+
+
         </div>
+    </div>
+
+    <!-- <div id="file">
+        <button id="btn-file">Send file</button>
+        <input type="file" id="input-file">
+    </div> -->
+
+    <div id="name">
+        <label for="input-name">Nome</label>
+        <input type="text" id="input-name">
+        <button id="btn-rename">Rename</button>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>

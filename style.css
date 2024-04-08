@@ -9,29 +9,7 @@ body{
     color: rgba(159,166,188);
 }
 
-.box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 500px;
-    height: 500px;
-    background-color: rgb(20,24,36);
-    border: 2px solid rgb(47,53,73);
-}
-
-.texto{
-    padding: 20px;
-    margin: 20px;
-    border: 2px solid rgb(47,53,73);
-}
-
-.little{
-    padding: 20px;
-    background-color: rgb(26,116,255);
-    margin: 20px;
-    color: white;
-}
-.page{
+.global-container{
     width: 100vw;
     height: 100vh;
 
@@ -40,16 +18,235 @@ body{
     justify-content: center;
 }
 
-.online{
+.chat-area{
+    width: 80%;
+    min-height: 80%;
+    max-height: 80%;
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
-.iconline{
+.head-container{
+    border: 1px solid rgb(47,53,73);
+    padding: 20px 40px;
+    border-bottom: 0px;
+    border-radius: 10px 10px 0 0;
+}
+
+.head-area{
+    display: flex;
+    gap: 20px;
+}
+
+.head-column{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.head-column .profile-name{
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.head-column .icon-down{
+    width: 12px;
+}
+
+.online{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-size: 14px;
+}
+
+.online .icon-online{
     border-radius: 5px;
-    width: 10px;
-    height: 10px;
+    min-width: 10px;
+    min-height: 10px;
     background-color: rgb(114,214,127);
 }
+
+
+.input-container{
+    border: 1px solid rgb(47,53,73);
+    border-top: 0px;
+    border-radius: 0 0 10px 10px;
+    padding: 20px 40px;
+}
+
+.input-area{
+    /* border: 1px solid yellow; */
+    display: flex;
+    gap:10px;
+}
+
+.input-entry input{
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-family: 'Poppins';
+    padding: 10px 20px;
+    flex-grow: 1;
+    /*
+    */
+}
+
+
+.input-entry{
+    /* border: 1px solid rebeccapurple; */
+    display: flex;
+    background-color: rgb(20,24,36);
+    border-radius: 10px;
+    flex-grow: 1;
+    
+}
+
+.input-icon{
+    display: flex;
+    cursor: pointer;
+}
+
+.input-icon .icon{
+    max-height: 40px;
+    padding: 10px;
+    /*
+    margin: 0 10px;
+    */
+}
+
+.message-container{
+    /* border: 1px solid magenta; */
+    display: flex;
+    justify-content: end;
+    background-color: rgb(20,24,36);
+    border: 1px solid rgb(47,53,73);
+    flex-grow: 1;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+    padding: 20px 20px;
+    gap:4px;
+}
+
+.message-container::-webkit-scrollbar{
+    width: 4px;
+}
+
+.message-container::-webkit-scrollbar-track{
+    background-color: rgb(20,24,36);
+    border-radius: 10px;
+}
+
+.message-container::-webkit-scrollbar-thumb{
+    background-color: rgb(47,53,73);
+    border-radius: 10px;
+} 
+
+.message-profile-icon{
+
+    background-image: url("./icons/user/user.png");
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-size: 120%;
+    border-radius: 100%;
+}
+
+
+.message-area{
+    /* border: 1px solid rebeccapurple; */
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.message-group{
+    /* border: 1px solid yellow; */
+    align-self: start;
+    display: flex;
+    gap: 10px;
+}
+
+.message-column{
+    /* border: 1px solid lightskyblue; */
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+}
+
+.message-row{
+    /* border: 1px solid crimson; */
+    display: flex;
+    flex-direction: column;
+}
+
+.texto{
+    padding: 12px;
+    border: 1px solid rgb(47,53,73);
+    border-radius: 0 5px 5px 5px;
+}
+
+.time{
+    font-size: 11px;
+    color: rgba(80,83,94);
+    margin-left: auto;
+    padding: 2px 0;
+}
+
+.message-area.just-me{
+    justify-content: end;
+}
+
+.message-area.just-me .message-group{
+    flex-direction: row-reverse;
+}
+
+.message-area.just-me .message-column{
+    align-items: end;
+}
+
+.message-area.just-me .texto{
+    border-radius: 5px 0 5px 5px;
+}
+
+.message-area.just-me .message-column .time{
+    margin-left: 0;
+}
+
+.message-area.just-me .message-column .message-profile-icon{
+    background-image: url("./icons/user/user2.png");
+}
+
+.message-area.just-me .message-column .texto{
+    background-color: rgb(26,116,255);
+    color: white;
+    border: none;
+}
+
+.image-preview{
+    max-width: 50%;
+    padding: 12px;
+    border: 1px solid rgb(47,53,73);
+    border-radius: 5px 5px 5px 5px;
+}
+
+.document-preview{
+    max-width: 100px;
+}
+
+.document{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid rgb(47,53,73);
+    border-radius: 5px 5px 5px 5px;
+}
+
+/*
+*/

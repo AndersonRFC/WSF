@@ -1,0 +1,44 @@
+#file{
+    position:absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+#file button{
+    appearance: none;
+    background-color: rgba(159,166,188);;
+    border: none;
+    outline: none;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+#name{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+#name input{
+    appearance: none;
+    background-color: rgba(159,166,188);;
+    border: none;
+    outline: none;
+    padding: 4px;
+    border-radius: 2px;
+    /*
+    */
+}
+
+#name button{
+    appearance: none;
+    background-color: rgba(159,166,188);;
+    border: none;
+    outline: none;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.message-name{
+    color: mediumspringgreen;
+}

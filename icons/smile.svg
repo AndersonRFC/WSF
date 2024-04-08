@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="185.57559"
+   height="185.57556"
+   viewBox="0 0 185.57559 185.57556"
+   sodipodi:docname="phoenix_chat.png"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g1"
+     transform="translate(-435.06631,-1245.287)">
+    <g
+       id="g3"
+       transform="matrix(13.239652,0,0,13.239652,-8770.8099,-10718.954)"
+       inkscape:export-filename="Icons\smile.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <circle
+         style="fill:none;fill-opacity:1;stroke:#959cb1;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="path1"
+         cx="702.33447"
+         cy="910.67566"
+         r="6.1083255" />
+      <circle
+         style="fill:#959cb1;fill-opacity:1;stroke:none;stroke-width:2.90769;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="path2"
+         cx="700.35834"
+         cy="909.18341"
+         r="0.84691495" />
+      <circle
+         style="fill:#959cb1;fill-opacity:1;stroke:none;stroke-width:2.90769;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         id="circle2"
+         cx="704.63324"
+         cy="909.18341"
+         r="0.84691495" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#959cb1;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         d="m 699.99539,912.3694 c 0,0 0.92757,1.2502 2.41975,1.2502 0,0 1.57285,-0.0806 2.41976,-1.37119"
+         id="path3" />
+    </g>
+  </g>
+</svg>

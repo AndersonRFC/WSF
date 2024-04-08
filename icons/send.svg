@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="107.64771"
+   height="113.91638"
+   viewBox="0 0 107.64771 113.91638"
+   sodipodi:docname="phoenix_chat.png"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g1"
+     transform="translate(-1305.3029,-1235.6622)">
+    <path
+       id="path11"
+       style="fill:#9fa6bc;fill-opacity:1;stroke:#9fa6bc;stroke-width:4.864;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="m 1410.5186,1238.094 -102.784,56.4833 25.0978,12.027 46.3006,-41.0566 -31.6336,52.893 10.4492,28.7066 4.712,-24.7174 32.9439,12.9569 z" />
+  </g>
+</svg>
