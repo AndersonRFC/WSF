@@ -97,8 +97,8 @@ socket.onmessage = function (event) {
 // --
 
 function iniciarConexão() {
-    // const socket = new WebSocket("ws://localhost:5200/ws");
-    const socket = new WebSocket("wss://ae48-177-148-191-0.ngrok-free.app/ws");
+    const socket = new WebSocket("ws://localhost:5200/ws");
+    // const socket = new WebSocket("wss://ae48-177-148-191-0.ngrok-free.app/ws");
 
   socket.onopen = (event) => {
     console.log("Conexão estabelecida");
