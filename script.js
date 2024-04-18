@@ -3,7 +3,7 @@ var buttonFile = document.getElementById("btn-file");
 var buttonName = document.getElementById("btn-rename");
 
 var input = document.getElementById("input-text");
-// var inputFile = document.getElementById("input-file");
+var inputFile = document.getElementById("input-file");
 var inputName = document.getElementById("input-name");
 
 var listaMensagens = document.getElementById("lista-mensagens");
@@ -63,27 +63,16 @@ socket.onmessage = function (event) {
 
     adicionarMensagem(message.Name, message.Data, "19:39");
   } else if (message.Type === "file") {
-    var quebraLinha3 = document.createElement("br");
-    listaMensagens.appendChild(quebraLinha3);
+    var isImage = isImageFile(message.Data); // Verifica se é uma imagem
 
-    var linkDownload = document.createElement("a");
-    linkDownload.textContent =
-      "Baixar arquivo: " + message.Data.split("/")[1] + "  -  ";
-    linkDownload.href = message.Data;
-    linkDownload.download = message.Name;
-    listaMensagens.appendChild(linkDownload);
-
-    var linkVisualizacao = document.createElement("a");
-    linkVisualizacao.textContent = "Ver arquivo: " + message.Data.split("/")[1];
-    linkVisualizacao.href = message.Data;
-    linkVisualizacao.target = "_blank";
-    listaMensagens.appendChild(linkVisualizacao);
-
-    var quebraLinha = document.createElement("br");
-    listaMensagens.appendChild(quebraLinha);
+    if (isImage) {
+      adicionarImagem(message.Name, message.Data, "19:39");
+    } else {
+      adicionarDocumento(message.Name, message.Data, "19:39");
+    }
   } else if (message.Type == "info") {
     //var texto = (parseInt(message.Data)*10).toString()
-    atualizarPbar(message.Data + "%");
+    //atualizarPbar(message.Data + "%");
     //console.log(message.Data + "px");
   } else if (message.Type == "newUser") {
     console.log("novo usuario: " + message.Data);
@@ -96,9 +85,17 @@ socket.onmessage = function (event) {
 
 // --
 
+
+function isImageFile(url) {
+  // Verifica se a URL termina com uma extensão de imagem comum
+  return /\.(jpeg|jpg|gif|png)$/i.test(url);
+}
+
+// --
+
 function iniciarConexão() {
-    const socket = new WebSocket("ws://localhost:5200/ws");
-    // const socket = new WebSocket("wss://ae48-177-148-191-0.ngrok-free.app/ws");
+  // const socket = new WebSocket("ws://localhost:5200/ws");
+  const socket = new WebSocket("wss://7628-186-229-191-15.ngrok-free.app/ws");
 
   socket.onopen = (event) => {
     console.log("Conexão estabelecida");
@@ -174,11 +171,28 @@ function enviarArquivo(file) {
 
 */
 
-// inputFile.addEventListener("change", (e) => {
-//   let file = e.target.files[0];
-//   console.log(file);
-//   pbar.style.width = "0%";
-// });
+inputFile.addEventListener("change", (e) => {
+  let filex = e.target.files[0];
+  console.log(filex);
+  // pbar.style.width = "0%";
+
+  var files = e.target.files;
+
+  for (var i = 0; i < files.length; i++) {
+    var filey = files[i];
+    console.log("Nome do arquivo:", filey.name);
+    console.log("Tamanho do arquivo:", filey.size);
+    console.log("Tipo do arquivo:", filey.type);
+  }
+
+  const file = inputFile.files[0];
+  if (file) {
+    enviarArquivo(file);
+    console.log("descomentar o envio de arquivo");
+  } else {
+    console.log("Nenhum arquivo selecionado.");
+  }
+});
 
 function atualizarPbar(value) {
   // Atualiza a largura do pbar para 30%
@@ -186,17 +200,17 @@ function atualizarPbar(value) {
 }
 
 function atualizarListaUsuarios(listaUsuarios) {
-//   var listaHTML = document.getElementById("lista-usuarios");
-//   listaHTML.innerHTML = "";
+  //   var listaHTML = document.getElementById("lista-usuarios");
+  //   listaHTML.innerHTML = "";
 
-//   console.log("chamou a lista -----------");
-//   console.log(listaUsuarios);
-//   listaUsuarios.forEach((u) => {
-//     var usuario = document.createElement("p");
-//     usuario.innerHTML = u.Name;
+  //   console.log("chamou a lista -----------");
+  //   console.log(listaUsuarios);
+  //   listaUsuarios.forEach((u) => {
+  //     var usuario = document.createElement("p");
+  //     usuario.innerHTML = u.Name;
 
-//     listaHTML.appendChild(usuario);
-//   });
+  //     listaHTML.appendChild(usuario);
+  //   });
 
   document.querySelector(".profile-name").innerHTML = listaUsuarios.length;
 }
@@ -224,7 +238,6 @@ function adicionarMensagem(nome, texto, hora) {
 
     lastTime = messageTime;
     lastMessageRow = messageRow;
-
   } else {
     var messageContainer = document.querySelector(".message-container-reverse");
 
@@ -277,6 +290,95 @@ function adicionarMensagem(nome, texto, hora) {
 
     messageContainer.appendChild(messageGroup);
 
+    lastMessageColumn = messageColumn2;
+    lastTime = messageTime;
+    lastMessageRow = messageRow3;
+    lastName = nome;
+  }
+}
+
+function desabilitarCampos() {
+  document.getElementById("name").style.display = "none";
+}
+
+document
+  .getElementById("custom-file-button")
+  .addEventListener("click", function () {
+    document.getElementById("input-file").click();
+  });
+
+function adicionarImagem(nome, url, hora) {
+  if (nome == lastName) {
+    lastMessageRow.removeChild(lastTime);
+
+    var messageRow = document.createElement("div");
+    var messageImage = document.createElement("img");
+    var messageTime = document.createElement("div");
+
+    messageRow.classList.add("message-row");
+    messageImage.classList.add("image-preview");
+    messageTime.classList.add("time");
+
+    messageImage.src = url;
+    messageTime.textContent = hora;
+    messageRow.appendChild(messageImage);
+    messageRow.appendChild(messageTime);
+
+    lastMessageColumn.appendChild(messageRow);
+
+    lastTime = messageTime;
+    lastMessageRow = messageRow;
+  } else {
+    var messageContainer = document.querySelector(".message-container-reverse");
+
+    var messageArea = document.createElement("div");
+    var messageGroup = document.createElement("div");
+    var messageColumn = document.createElement("div");
+    var messageRow = document.createElement("div");
+    var messageProfileIcon = document.createElement("div");
+    var messageGroup = document.createElement("div");
+
+    var messageColumn2 = document.createElement("div");
+    var messageRow2 = document.createElement("div");
+    var messageName = document.createElement("div");
+
+    var messageRow3 = document.createElement("div");
+    var messageImage = document.createElement("img");
+
+    var messageTime = document.createElement("div");
+
+    messageArea.classList.add("message-area");
+    messageGroup.classList.add("message-group");
+    messageColumn.classList.add("message-column");
+    messageColumn2.classList.add("message-column");
+    messageRow.classList.add("message-row");
+    messageRow2.classList.add("message-row");
+    messageRow3.classList.add("message-row");
+    messageProfileIcon.classList.add("message-profile-icon");
+    messageName.classList.add("message-name");
+    messageImage.classList.add("image-preview");
+    messageTime.classList.add("time");
+
+    messageTime.textContent = hora;
+    messageImage.src = url;
+    messageName.textContent = nome;
+
+    messageRow2.appendChild(messageName);
+    messageRow3.appendChild(messageImage);
+    messageRow3.appendChild(messageTime);
+
+    messageColumn2.appendChild(messageRow2);
+    messageColumn2.appendChild(messageRow3);
+
+    // messageRow.appendChild(messageProfileIcon);
+    messageColumn.appendChild(messageRow);
+
+    messageGroup.appendChild(messageColumn);
+    messageGroup.appendChild(messageColumn2);
+
+    messageArea.appendChild(messageGroup);
+
+    messageContainer.appendChild(messageGroup);
 
     lastMessageColumn = messageColumn2;
     lastTime = messageTime;
@@ -285,6 +387,88 @@ function adicionarMensagem(nome, texto, hora) {
   }
 }
 
-function desabilitarCampos(){
-    document.getElementById('name').style.display = 'none';
+
+// --
+
+function adicionarDocumento(nome, url, hora) {
+  if (nome == lastName) {
+    lastMessageRow.removeChild(lastTime);
+
+    var messageRow = document.createElement("div");
+    var messageDocument = document.createElement("a");
+    var messageTime = document.createElement("div");
+
+    messageRow.classList.add("message-row");
+    messageDocument.classList.add("texto");
+    messageTime.classList.add("time");
+
+    messageDocument.textContent = "document";
+    messageDocument.href = url;
+    messageTime.textContent = hora;
+    messageRow.appendChild(messageDocument);
+    messageRow.appendChild(messageTime);
+
+    lastMessageColumn.appendChild(messageRow);
+
+    lastTime = messageTime;
+    lastMessageRow = messageRow;
+  } else {
+    var messageContainer = document.querySelector(".message-container-reverse");
+
+    var messageArea = document.createElement("div");
+    var messageGroup = document.createElement("div");
+    var messageColumn = document.createElement("div");
+    var messageRow = document.createElement("div");
+    var messageProfileIcon = document.createElement("div");
+    var messageGroup = document.createElement("div");
+
+    var messageColumn2 = document.createElement("div");
+    var messageRow2 = document.createElement("div");
+    var messageName = document.createElement("div");
+
+    var messageRow3 = document.createElement("div");
+    // var messageTexto = document.createElement("div");
+    var messageDocument = document.createElement("a");
+
+    var messageTime = document.createElement("div");
+
+    messageArea.classList.add("message-area");
+    messageGroup.classList.add("message-group");
+    messageColumn.classList.add("message-column");
+    messageColumn2.classList.add("message-column");
+    messageRow.classList.add("message-row");
+    messageRow2.classList.add("message-row");
+    messageRow3.classList.add("message-row");
+    messageProfileIcon.classList.add("message-profile-icon");
+    messageName.classList.add("message-name");
+    messageDocument.classList.add("texto");
+    messageTime.classList.add("time");
+
+    messageTime.textContent = hora;
+    messageDocument.textContent = "document";
+    messageDocument.href = url;
+    messageName.textContent = nome;
+
+    messageRow2.appendChild(messageName);
+    messageRow3.appendChild(messageDocument);
+    messageRow3.appendChild(messageTime);
+
+    messageColumn2.appendChild(messageRow2);
+    messageColumn2.appendChild(messageRow3);
+
+    // messageRow.appendChild(messageProfileIcon);
+    messageColumn.appendChild(messageRow);
+
+    messageGroup.appendChild(messageColumn);
+    messageGroup.appendChild(messageColumn2);
+
+    messageArea.appendChild(messageGroup);
+
+    messageContainer.appendChild(messageGroup);
+
+    lastMessageColumn = messageColumn2;
+    lastTime = messageTime;
+    lastMessageRow = messageRow3;
+    lastName = nome;
+  }
 }

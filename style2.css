@@ -1,4 +1,4 @@
-#file{
+/* #file{
     position:absolute;
     bottom: 10px;
     left: 10px;
@@ -11,7 +11,7 @@
     outline: none;
     padding: 4px;
     border-radius: 2px;
-}
+} */
 
 #name{
     position: absolute;
@@ -32,7 +32,7 @@
 
 #name button{
     appearance: none;
-    background-color: rgba(159,166,188);;
+    background-color: rgba(159,166,188);
     border: none;
     outline: none;
     padding: 4px;
@@ -41,4 +41,29 @@
 
 .message-name{
     color: mediumspringgreen;
+}
+
+.input-file-container input[type=file] + span {
+    display: none;
+}
+input[type="file" i] {
+    color: transparent;
+    width: 117px;
+    border: 1px solid rebeccapurple;
+    
+}
+
+/* Estilizando o botão personalizado */
+#custom-file-button {
+    padding: 8px 20px;
+    background-color: rgba(159,166,188);
+    color: rgb(13, 12, 50);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Ocultando o input file */
+#input-file {
+    display: none;
 }

@@ -147,7 +147,7 @@ body{
 
 .message-profile-icon{
 
-    background-image: url("./icons/user/user.png");
+    background-image: url("./iicons/user/user.png");
     width: 50px;
     height: 50px;
     background-position: center;
@@ -217,7 +217,7 @@ body{
 }
 
 .message-area.just-me .message-column .message-profile-icon{
-    background-image: url("./icons/user/user2.png");
+    background-image: url("./iicons/user/user2.png");
 }
 
 .message-area.just-me .message-column .texto{
